@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/tarefas-pendentes-controler')
+
+const controller = require('../controllers/tarefas.controler')
 
 
 router.get('/', controller.get);

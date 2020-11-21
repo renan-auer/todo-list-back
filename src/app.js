@@ -1,11 +1,13 @@
 const express = require('express');
+const cors = require('cors')
+
 const app = express();
+app.use(cors());
 const router = express.Router();
 
 
-const tarefasPendentesRoutes = require('./routes/tarefas-pendentes-routes');
-const tarefasConcluidasRoutes = require('./routes/tarefas-concluidas-routes');
+const tarefasRoutes = require('./routes/tarefas.routes');
 
-app.use('/tarefas-pendentes', tarefasPendentesRoutes);
-app.use('/tarefas-concluidas', tarefasConcluidasRoutes);
+app.use('/tarefas', tarefasRoutes);
+
 module.exports = app;
