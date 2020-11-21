@@ -23,6 +23,7 @@ exports.post = async function (req, res, next) {
 
     res.status(200).send();
 };
+
 exports.put = async function (req, res, next) {
 
     const tarefa = await Tarefa.findByPk(req.body.id);
@@ -32,6 +33,16 @@ exports.put = async function (req, res, next) {
     const resultado = await tarefa.save();
     res.status(200).send();
 };
+
+exports.alterarStatus = async function (req, res, next) {
+
+    const tarefa = await Tarefa.findByPk(req.body.id);
+    tarefa.status = req.body.status;
+
+    const resultado = await tarefa.save();
+    res.status(200).send();
+};
+
 exports.delete = async function (req, res, next) {
     Tarefa.destroy({ where: { id: req.params.id } });
 

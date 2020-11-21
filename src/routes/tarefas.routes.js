@@ -7,6 +7,7 @@ const controller = require('../controllers/tarefas.controler')
 router.get('/:status', controller.get);
 router.post('/', controller.post);
 router.put('/', controller.put);
+router.put('/status', controller.alterarStatus);
 router.delete('/:id', controller.delete);
 
 module.exports = router;
